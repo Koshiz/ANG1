@@ -13,12 +13,23 @@
     [disabled]="!allowNewServer"
     (click)="onCreateServer()"
     >Add Server</button>
+
+
     <!-- <p>{{ serverCreationStatus }}</p> -->
     <!-- <p *ngIf="serverCreated">Server was created Server name is {{ serverName }}</p> -->
 <!-- <p [innerText]="allowNewServer"></p> -->
 
+<!-- new if statement instead of ngIf -->
 @if(serverCreated === true){
     <p>Server was created Server name is {{ serverName }}</p>
 }@else {
     <p>There is no server</p>
+}
+
+<!-- <app-server *ngFor="let server of servers"></app-server> -->
+
+<!-- new for statement instead of ngFor -->
+
+@for (server of servers; track $index) {
+    <app-server></app-server>
 }
